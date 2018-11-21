@@ -1,0 +1,15 @@
+#!/bin/bash
+cd ~/
+sudo apt-get update
+sudo apt-get install qemu-kvm libviret-clients libvirt-daemon-system virt-manager libguestfs-tools
+sudo adduser `whoami` libvirt
+sudo adduser `whoami` libvirt-qemu
+ssh-keygen -t rsa
+mkdir ~/virt
+sudo mkfs -t ext4 /dev/sda4
+sudo mount /dev/sda4 ~/virt
+cd ~/kvm-install-vm
+sudo ./kvm-install-vm create -m 8192 -t ubuntu1804 ubuntu1
+sudo ./kvm-install-vm create -m 8192 -t ubuntu1804 ubuntu2
+sudo ./kvm-install-vm create -m 8192 -t ubuntu1804 ubuntu3
+sudo ./kvm-install-vm create -m 8192 -t ubuntu1804 ubuntu4
