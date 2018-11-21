@@ -1,7 +1,7 @@
 #!/bin/bash
 cd ~/
 sudo apt-get update
-sudo apt-get install qemu-kvm libviret-clients libvirt-daemon-system virt-manager libguestfs-tools
+sudo apt-get install qemu-kvm libvirt-clients libvirt-daemon-system virt-manager libguestfs-tools
 sudo adduser `whoami` libvirt
 sudo adduser `whoami` libvirt-qemu
 ssh-keygen -t rsa
